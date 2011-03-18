@@ -19,4 +19,4 @@
 (defn problem-006
   "Solution to Euler problem 006"
   [n]
-  (- (sq (reduce + (range (inc n)))) (reduce + (map #(* % %) (range (inc n))))))
+  (- (sq (reduce + (range (inc n)))) (reduce + (map sq (range (inc n))))))
