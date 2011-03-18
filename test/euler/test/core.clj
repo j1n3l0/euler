@@ -12,4 +12,4 @@
 
 (deftest test-problem-002
   (is (= 10 (problem-002 10))
-      "solution to (problem-001 10) should be 10"))
+      "solution to (problem-002 10) should be 10"))
