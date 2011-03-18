@@ -1,9 +1,7 @@
-(ns euler.core)
+(ns euler.core
+  (:use [clojure.contrib.lazy-seqs :only [fibs]]))
 
 ;; Utility vars and functions ...
-
-(def fib
-  (lazy-cat [0 1] (map + fib (rest fib))))
 
 ;; Solutions ...
 
@@ -15,4 +13,4 @@
 (defn problem-002
   "Solution to Euler problem 002"
   [n]
-  (reduce + (filter even? (take-while #(< % n) fib))))
+  (reduce + (filter even? (take-while #(< % n) (fibs)))))
