@@ -2,6 +2,7 @@
   (:use [clojure.contrib.lazy-seqs :only [fibs]]))
 
 ;; Utility vars and functions ...
+(defn- sq [n] (* n n))
 
 ;; Solutions ...
 
@@ -14,3 +15,8 @@
   "Solution to Euler problem 002"
   [n]
   (reduce + (filter even? (take-while #(< % n) (fibs)))))
+
+(defn problem-006
+  "Solution to Euler problem 006"
+  [n]
+  (- (sq (reduce + (range (inc n)))) (reduce + (map #(* % %) (range (inc n))))))
