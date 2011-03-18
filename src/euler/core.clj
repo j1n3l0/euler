@@ -1,8 +1,8 @@
 (ns euler.core
-  (:use [clojure.contrib.lazy-seqs :only [fibs]]))
+  (:use [clojure.contrib.lazy-seqs :only [fibs]])
+  (:use [clojure.contrib.generic.math-functions :only [sqr]]))
 
 ;; Utility vars and functions ...
-(defn- sq [n] (* n n))
 
 ;; Solutions ...
 
@@ -19,4 +19,4 @@
 (defn problem-006
   "Solution to Euler problem 006"
   [n]
-  (- (sq (reduce + (range (inc n)))) (reduce + (map sq (range (inc n))))))
+  (- (sqr (reduce + (range (inc n)))) (reduce + (map sqr (range (inc n))))))
