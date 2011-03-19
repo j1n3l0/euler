@@ -50,7 +50,9 @@
   (reduce * (repeat p n)))
 
 (defn- pythagorean-triple?
-  ([a b c] (= (+ (* a a) (* b b)) (* c c))))
+  "Test if [a b c] are a pythagorean triple"
+  [a b c]
+  (= (+ (sqr a) (sqr b)) (sqr c)))
 
 ;; Solutions ...
 
