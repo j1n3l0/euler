@@ -3,17 +3,7 @@
   (:use [clojure.contrib.math :only [floor lcm sqrt]])
   (:use [clojure.contrib.generic.math-functions :only [sqr]]))
 
-;; Utility vars and functions ...
-
-(defn- digits
-  "Return the digits of n as a list"
-  [n]
-  (map #(- (int %) (int \0)) (seq (str n))))
-
-(defn- palindrome?
-  "Tests if n is palindromic"
-  [n]
-  (= (digits n) (reverse (digits n))))
+;; Utility vars ...
 
 (def thousand-digit-number
   (str "73167176531330624919225119674426574742355349194934"
@@ -36,6 +26,21 @@
        "84580156166097919133875499200524063689912560717606"
        "05886116467109405077541002256983155200055935729725"
        "71636269561882670428252483600823257530420752963450"))
+
+;; Utility functions ...
+
+(defn- digits
+  "Return the digits of n as a list"
+  [n]
+  (map #(- (int %) (int \0)) (seq (str n))))
+
+(defn- palindrome?
+  "Tests if n is palindromic"
+  [n]
+  (= (digits n) (reverse (digits n))))
+
+(defn- pythagorean-triple?
+  ([a b c] (= (+ (* a a) (* b b)) (* c c))))
 
 ;; Solutions ...
 
