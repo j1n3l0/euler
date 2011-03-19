@@ -34,6 +34,11 @@
   [n]
   (map #(- (int %) (int \0)) (seq (str n))))
 
+(defn- factorial
+  "Return the factorial of n"
+  [n]
+  (reduce * (range 1 (inc n))))
+
 (defn- palindrome?
   "Tests if n is palindromic"
   [n]
@@ -106,3 +111,8 @@
   "Solution to Euler problem 016"
   [n]
   (reduce + (digits (power 2 n))))
+
+(defn problem-020
+  "Solution to Euler problem 020"
+  [n]
+  (reduce + (digits (factorial n))))
