@@ -34,6 +34,10 @@
   (is (= 15120 (problem-008 123456789))
       "solution to (problem-008 123456789) should be 15120"))
 
+(deftest test-problem-009
+  (is (= 60 (problem-009 12))
+      "solution to (problem-009 12) should be 60"))
+
 (deftest test-problem-010
   (is (= 17 (problem-010 10))
       "solution to (problem-010 10) should be 17"))

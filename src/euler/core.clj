@@ -84,6 +84,14 @@
   [n]
   (apply max (map #(reduce * %) (partition 5 1 (digits n)))))
 
+(defn problem-009
+  "Solution to Euler problem 009"
+  [n]
+  (reduce * (first (filter #(apply pythagorean-triple? %)
+                           (for [a (range 1 (/ n 3))
+                                 b (range (inc a) (/ (- n a) 2))]
+                             [a b (- n a b)])))))
+
 (defn problem-010
   "Solution to Euler problem 010"
   [n]
