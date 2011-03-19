@@ -74,6 +74,11 @@
   [n]
   (nth primes (dec n)))
 
+(defn problem-008
+  "Solution to Euler problem 008"
+  [n]
+  (apply max (map #(reduce * %) (partition 5 1 (digits n)))))
+
 (defn problem-010
   "Solution to Euler problem 010"
   [n]
