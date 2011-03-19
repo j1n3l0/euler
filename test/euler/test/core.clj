@@ -21,3 +21,7 @@
 (deftest test-problem-006
   (is (= 2640 (problem-006 10))
       "solution to (problem-006 10) should be 2640"))
+
+(deftest test-problem-010
+  (is (= 17 (problem-010 10))
+      "solution to (problem-010 10) should be 17"))

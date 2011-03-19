@@ -31,3 +31,8 @@
   "Solution to Euler problem 006"
   [n]
   (- (sqr (reduce + (range (inc n)))) (reduce + (map sqr (range (inc n))))))
+
+(defn problem-010
+  "Solution to Euler problem 010"
+  [n]
+  (reduce + (take-while #(< % n) primes)))
