@@ -1,5 +1,6 @@
 (ns euler.core
   (:use [clojure.contrib.lazy-seqs :only [fibs]])
+  (:use [clojure.contrib.math :only [lcm]])
   (:use [clojure.contrib.generic.math-functions :only [sqr]]))
 
 ;; Utility vars and functions ...
@@ -15,6 +16,11 @@
   "Solution to Euler problem 002"
   [n]
   (reduce + (filter even? (take-while #(< % n) (fibs)))))
+
+(defn problem-005
+  "Solution to Euler problem 005"
+  [n]
+  (reduce lcm (range 1 (inc n))))
 
 (defn problem-006
   "Solution to Euler problem 006"
