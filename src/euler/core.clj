@@ -34,7 +34,7 @@
 (defn problem-004
   "Solution to Euler problem 004"
   [coll]
-  (last (sort (filter palindrome? (for [x coll y coll] (* x y))))))
+  (apply max (filter palindrome? (for [x coll y coll :when (>= x y)] (* x y)))))
 
 (defn problem-005
   "Solution to Euler problem 005"
