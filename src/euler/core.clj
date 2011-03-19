@@ -32,6 +32,11 @@
   [n]
   (- (sqr (reduce + (range (inc n)))) (reduce + (map sqr (range (inc n))))))
 
+(defn problem-007
+  "Solution to Euler problem 007"
+  [n]
+  (nth primes (dec n)))
+
 (defn problem-010
   "Solution to Euler problem 010"
   [n]
