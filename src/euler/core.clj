@@ -4,6 +4,7 @@
   (:use [clojure.contrib.generic.math-functions :only [sqr]]))
 
 ;; Utility vars and functions ...
+
 (defn- digits
   "Return the digits of n as a list"
   [n]
