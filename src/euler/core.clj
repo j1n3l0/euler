@@ -1,6 +1,6 @@
 (ns euler.core
-  (:use [clojure.contrib.lazy-seqs :only [fibs]])
-  (:use [clojure.contrib.math :only [lcm]])
+  (:use [clojure.contrib.lazy-seqs :only [fibs primes]])
+  (:use [clojure.contrib.math :only [floor lcm sqrt]])
   (:use [clojure.contrib.generic.math-functions :only [sqr]]))
 
 ;; Utility vars and functions ...
@@ -16,6 +16,11 @@
   "Solution to Euler problem 002"
   [n]
   (reduce + (filter even? (take-while #(< % n) (fibs)))))
+
+(defn problem-003
+  "Solution to Euler problem 003"
+  [n]
+  (last (filter #(zero? (mod n %)) (take-while #(< % (int (floor (sqrt n)))) primes))))
 
 (defn problem-005
   "Solution to Euler problem 005"
