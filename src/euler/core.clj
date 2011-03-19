@@ -39,6 +39,11 @@
   [n]
   (= (digits n) (reverse (digits n))))
 
+(defn- power
+  "Raise n to the power p"
+  [n p]
+  (reduce * (repeat p n)))
+
 (defn- pythagorean-triple?
   ([a b c] (= (+ (* a a) (* b b)) (* c c))))
 
@@ -96,3 +101,8 @@
   "Solution to Euler problem 010"
   [n]
   (reduce + (take-while #(< % n) primes)))
+
+(defn problem-016
+  "Solution to Euler problem 016"
+  [n]
+  (reduce + (digits (power 2 n))))
