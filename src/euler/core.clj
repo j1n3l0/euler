@@ -54,8 +54,9 @@
   [a b c]
   (= (+ (sqr a) (sqr b)) (sqr c)))
 
-(defn- collatz-next [n]
-  (when (< 1 n) (if (even? n) (/ n 2) (+ 1 (* n 3)))))
+(def collatz-next
+  (memoize
+   (fn [n] (when (< 1 n) (if (even? n) (/ n 2) (+ 1 (* n 3)))))))
 
 (defn- collatz-sequence [x]
   (take-while (comp not nil?) (iterate collatz-next x)))
