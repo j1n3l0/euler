@@ -54,6 +54,12 @@
   [a b c]
   (= (+ (sqr a) (sqr b)) (sqr c)))
 
+(defn- collatz-next [n]
+  (when (< 1 n) (if (even? n) (/ n 2) (+ 1 (* n 3)))))
+
+(defn- collatz-sequence [x]
+  (take-while (comp not nil?) (iterate collatz-next x)))
+
 ;; Solutions ...
 
 (defn problem-001
@@ -108,6 +114,12 @@
   "Solution to Euler problem 010"
   [n]
   (reduce + (take-while #(< % n) primes)))
+
+(defn problem-014
+  "Solution to Euler problem 014"
+  [n]
+  (first (keys (apply max-key (comp val first)
+         (map #(hash-map % (count (collatz-sequence %))) (range 1 n))))))
 
 (defn problem-016
   "Solution to Euler problem 016"
