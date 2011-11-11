@@ -1,0 +1,23 @@
+* euler
+
+  My attempts at learning clojure by solving the Project Euler problems.
+
+** Usage
+
+   #+BEGIN_SRC clojure
+   user> (use 'euler.core)
+   ;=> nil
+   user> (euler.core/problem-001 10)
+   ;=> 23
+   #+END_SRC
+
+** TODO
+
+   + Try Midje for testing
+   + Make 1.3 compliant (eventually)
+
+** License
+
+   Copyright (C) 2010 Nelo Onyiah
+
+   Distributed under the Eclipse Public License, the same as Clojure.
