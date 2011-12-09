@@ -1,6 +1,6 @@
 * euler
 
-  My attempts at learning clojure by solving the Project Euler problems.
+  Learn [[http://clojure.org/][Clojure]] via [[http://projecteuler.net/][Project Euler]]
 
 ** Usage
 
