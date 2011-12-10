@@ -1,7 +1,5 @@
 (ns euler.core
-  (:use [clojure.contrib.lazy-seqs :only [fibs primes]])
-  (:use [clojure.contrib.math :only [floor lcm sqrt]])
-  (:use [clojure.contrib.generic.math-functions :only [sqr]]))
+  (:use [clojure.math.numeric-tower :only (floor lcm sqrt)]))
 
 ;; Utility vars ...
 
@@ -29,6 +27,29 @@
 
 ;; Utility functions ...
 
+;; See https://github.com/richhickey/clojure-contrib/blob/
+;; 78ee9b3e64c5ac6082fb223fc79292175e8e4f0c/src/main/clojure/
+;; clojure/contrib/lazy_seqs.clj#L66 for source
+(def primes "Lazy sequence of all the prime numbers."
+  (concat
+   [2 3 5 7]
+   (lazy-seq
+    (let [primes-from
+          (fn primes-from [n [f & r]]
+            (if (some #(zero? (rem n %))
+                      (take-while #(<= (* % %) n) primes))
+              (recur (+ n f) r)
+              (lazy-seq (cons n (primes-from (+ n f) r)))))
+          wheel (cycle [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2
+                        6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6
+                        2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10])]
+      (primes-from 11 wheel)))))
+
+(defn- fibs
+  "Returns a lazy sequence of all the Fibonacci numbers."
+  []
+  (map first (iterate (fn [[a b]] [b (+ a b)]) [0 1])))
+
 (defn- digits
   "Return the digits of n as a list"
   [n]
@@ -48,6 +69,8 @@
   "Raise n to the power p"
   [n p]
   (reduce * (repeat p n)))
+
+(defn- sqr [n] (* n n))
 
 (defn- pythagorean-triple?
   "Test if [a b c] are a pythagorean triple"
